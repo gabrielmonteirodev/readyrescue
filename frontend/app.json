@@ -24,6 +24,8 @@
       },
       "package": "com.anonymous.frontend"
     },
+    "plugins":
+      ["@react-native-google-signin/google-signin"],
     "web": {
       "favicon": "./assets/favicon.png"
     }
