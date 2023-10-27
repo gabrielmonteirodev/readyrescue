@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
 import { View, Text, Button, Image, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; // Importe o hook de navegação
 import logo from '../../assets/logo_ready_rescue.png';
-import {LinearGradient} from 'expo-linear-gradient';
+import { LinearGradient } from 'expo-linear-gradient';
 
-function LoginPage() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+function LoginPage({ isLoggedIn, setIsLoggedIn }) {
+  const navigation = useNavigation();
 
   const handleGoogleLoginClick = () => {
     setIsLoggedIn(true);
+
+    // Agora, redirecione para a página MenuPage
+    navigation.navigate('MenuPage');
   };
 
   return (
     <LinearGradient
-      colors={['#FF0101', 'transparent']} // Defina as cores do degradê com códigos hexadecimais
-      locations={[0.2, 1]} // Defina a posição do degradê (20% vermelho e 80% transparente)
+      colors={['rgba(255, 1.06, 1.06, 0.20)', 'rgba(208.25, 132.76, 132.76, 0)']}
+      start={{ x: 0.5, y: 0 }}
+      end={{ x: 0.5, y: 1 }}
       style={styles.pageContainer}
     >
       <Image source={logo} style={styles.logo} />
