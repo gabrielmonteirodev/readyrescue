@@ -4,7 +4,7 @@ import { View, Text, Button, Image, StyleSheet } from 'react-native';
 import logo from '../../assets/logo_ready_rescue.png';
 import {LinearGradient} from 'expo-linear-gradient';
 
-function LoginPage() {
+function Login() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigation = useNavigation();
 
@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginPage;
+export default Login;
