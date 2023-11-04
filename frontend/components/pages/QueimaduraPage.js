@@ -11,11 +11,12 @@ export default function QueimaduraPage({ navigation }) {
   };
 
   return (
+    <ScrollView style={styles.container}>
     <LinearGradient
       colors={['rgba(255, 1.06, 1.06, 0.20)', 'rgba(208.25, 132.76, 132.76, 0)']}
       start={{ x: 0.5, y: 0 }}
       end={{ x: 0.5, y: 1 }}
-      style={styles.container}
+      style={styles.gradient}
     >
       {/* Botão de retorno no canto superior esquerdo */}
       <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
@@ -87,6 +88,7 @@ export default function QueimaduraPage({ navigation }) {
         </TouchableOpacity>
       </View>
     </LinearGradient>
+    </ScrollView>
   );
 }
 
@@ -94,6 +96,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  gradient: {
+    flex: 1,
   },
   backButton: {
     position: 'absolute',
@@ -134,6 +139,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     marginBottom: 20,
+    marginTop: 20,
   },
   emergencyButton: {
     flexDirection: 'row',

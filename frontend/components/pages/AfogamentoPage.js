@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     marginBottom: 20,
+    marginTop: 20,
   },
   emergencyButton: {
     flexDirection: 'row',
