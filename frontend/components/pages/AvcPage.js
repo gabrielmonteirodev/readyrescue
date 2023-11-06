@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity, Alert, Linking } from 'react-native';
 import { Card } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
 import { FontAwesome } from '@expo/vector-icons';
@@ -9,6 +9,10 @@ export default function AvcPage({ navigation }) {
   const handleGoBack = () => {
     navigation.goBack();
   };
+
+  const handleEmergencyCall = () => {
+    Linking.openURL('tel:192');
+};
 
   return (
     <LinearGradient
@@ -55,9 +59,7 @@ export default function AvcPage({ navigation }) {
       <View style={styles.emergencyButtonContainer}>
         <TouchableOpacity
           style={styles.emergencyButton}
-          onPress={() => {
-            Alert.alert('EMERGÊNCIA', 'LIGANDO');
-          }}
+          onPress={handleEmergencyCall}
         >
           <FontAwesome name="bell" size={24} color="red" />
           <Text style={styles.emergencyButtonText}>EMERGÊNCIA</Text>
