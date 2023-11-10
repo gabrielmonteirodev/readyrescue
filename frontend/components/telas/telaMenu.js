@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  Text
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import avcImage from "../../assets/avc-img.png";
@@ -25,10 +26,19 @@ export default function Menu() {
         <View style={styles.searchBar}>
           <TextInput style={styles.input} placeholder="Pesquisar..." />
         </View>
-        <View style={styles.button}>
-          <TouchableOpacity onPress={navigationToAvc}>
-            <Image source={avcImage} style={styles.button} />
-          </TouchableOpacity>
+        <View style={styles.buttonRow}>
+          <View style={styles.buttonAvc}>
+            <TouchableOpacity onPress={navigationToAvc}>
+              <Image source={avcImage} style={styles.button} />
+            </TouchableOpacity>
+            <Text style={styles.textAvc}>Avc</Text>
+          </View>
+          <View style={styles.buttonAfogamento}>
+            <TouchableOpacity onPress={navigationToAvc}>
+              <Image source={avcImage} style={styles.button} />
+            </TouchableOpacity>
+            <Text style={styles.text}>Afogamento</Text>
+          </View>
         </View>
       </View>
     </LinearGradient>
@@ -37,7 +47,6 @@ export default function Menu() {
 
 const styles = StyleSheet.create({
   container: {
-    display:  "flex",
     flex: 1,
     marginTop: 50,
     paddingHorizontal: 16,
@@ -45,16 +54,27 @@ const styles = StyleSheet.create({
   linear:{
     flex: 1,
   },
-  button: {
-    width: 100,
-    height: 100,
+  buttonRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  buttonAvc: {
+    width: 80,
+    height: 80,
+    borderRadius: 50,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonAfogamento: {
+    width: 80,
+    height: 80,
     borderRadius: 50,
     justifyContent: "center",
     alignItems: "center",
   },
   searchBar: {
     marginBottom: 16,
-    backgroundColor:'#fff',
+    backgroundColor: '#fff',
   },
   input: {
     height: 40,
@@ -62,4 +82,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingLeft: 8,
   },
+  textAvc: {
+    color: "#000000",
+    fontSize: 20,
+    marginLeft: 5, // Espaço entre o botão e o texto
+  }
 });

@@ -1,8 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import LoginTela from './components/pages/telaLogin';
-import MenuTela from './components/pages/telaMenu';
-import AvcTela from './components/pages/avcTelaUnder18';
+import LoginTela from './components/telas/telaLogin';
+import MenuTela from './components/telas/telaMenu';
+import AvcTela from './components/telas/avcTelaUnder18';
 
 
 const Stack = createStackNavigator();
