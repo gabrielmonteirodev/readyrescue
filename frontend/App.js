@@ -9,6 +9,8 @@ import InfartoPage from './components/pages/InfartoPage';
 import ConvulsaoPage from './components/pages/ConvulsaoPage';
 import TraumatismoPage from './components/pages/TraumatismoPage';
 import QueimaduraPage from './components/pages/QueimaduraPage';
+import LojaPage from './components/pages/LojaPage';
+import CarrinhoPage from './components/pages/CarrinhoPage';
 
 const Stack = createStackNavigator();
 
@@ -32,6 +34,8 @@ export default function App() {
         <Stack.Screen name="ConvulsaoPage" component={ConvulsaoPage} />
         <Stack.Screen name="TraumatismoPage" component={TraumatismoPage} />
         <Stack.Screen name="QueimaduraPage" component={QueimaduraPage} />
+        <Stack.Screen name="LojaPage" component={LojaPage} />
+        <Stack.Screen name="CarrinhoPage" component={CarrinhoPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

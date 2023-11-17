@@ -19,7 +19,7 @@ export default function ConvulsaoPage({ navigation }) {
     >
       {/* Botão de retorno no canto superior esquerdo */}
       <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
-        <FontAwesome name="arrow-left" size={24} color="#fff" />
+        <FontAwesome name="arrow-left" size={24} color="#000" />
       </TouchableOpacity>
 
       {/* Imagem e título no topo do conteúdo */}
