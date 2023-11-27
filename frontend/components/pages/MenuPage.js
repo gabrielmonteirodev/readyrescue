@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, TextInput, Image, StyleSheet, KeyboardAvo
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { FontAwesome, AntDesign } from '@expo/vector-icons';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 export default function MenuPage({ isLoggedIn, setIsLoggedIn }) {
   const navigation = useNavigation();
@@ -71,6 +70,9 @@ export default function MenuPage({ isLoggedIn, setIsLoggedIn }) {
               </View>
             ))}
           </View>
+          <TouchableOpacity style={styles.shopButton}>
+            <Text style={styles.shopButtonText}>LOJA Ready Rescue</Text>
+          </TouchableOpacity>
           <View style={styles.logoutButton}>
             {renderButtonIcon('power-off', 24, handleLogoutClick)}
           </View>
@@ -142,8 +144,21 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 16,
   },
+  shopButton: {
+    backgroundColor: '#fff',
+    padding: 10,
+    borderRadius: 20,
+    borderWidth: 0.5,
+    elevation: 5,
+  },
+  shopButtonText: {
+    color: '#FF0000',
+    fontWeight: 'bold',
+  },
   logoutButton: {
     alignItems: 'center',
     marginBottom: 10,
+    marginTop: 30,
   },
+
 });
