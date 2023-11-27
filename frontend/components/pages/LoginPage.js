@@ -1,18 +1,52 @@
-import React, { useState } from 'react';
-import { View, Text, Button, Image, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Importe o hook de navegação
+import React, { useState, useEffect } from 'react';
+import { View, Text, Image, StyleSheet } from 'react-native';
+import { GoogleSignin, GoogleSigninButton, statusCodes } from '@react-native-google-signin/google-signin';
+import { useNavigation } from '@react-navigation/native';
 import logo from '../../assets/logo_ready_rescue.png';
 import { LinearGradient } from 'expo-linear-gradient';
 
-function LoginPage({ isLoggedIn, setIsLoggedIn }) {
+const LoginPage = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userInfo, setUserInfo] = useState({});
   const navigation = useNavigation();
 
-  const handleGoogleLoginClick = () => {
-    setIsLoggedIn(true);
-
-    // Agora, redirecione para a página MenuPage
-    navigation.navigate('MenuPage');
+  const _signin = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      const { accessToken, idToken, user } = await GoogleSignin.signIn();
+      setIsLoggedIn(true);
+      setUserInfo(user);
+    } catch (error) {
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        alert('Cancelado');
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        alert('Login em andamento');
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        alert('Google Play Services não está disponível');
+      } else {
+        alert(error.message);
+      }
+    }
   };
+
+  const _signOut = async () => {
+    try {
+      await GoogleSignin.revokeAccess();
+      await GoogleSignin.signOut();
+      setIsLoggedIn(false);
+      setUserInfo({});
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    GoogleSignin.configure({
+      scopes: ['https://www.googleapis.com/auth/drive.readonly'],
+      webClientId: '224957591212-r20dptrinmpcfigejajpv170snjnkiki.apps.googleusercontent.com',
+      offlineAccess: true,
+    });
+  }, []);
 
   return (
     <LinearGradient
@@ -26,16 +60,17 @@ function LoginPage({ isLoggedIn, setIsLoggedIn }) {
       {isLoggedIn ? (
         <View>
           <Text>Você está logado com sucesso!</Text>
+          <Button title="Sair" onPress={_signOut} />
         </View>
       ) : (
         <View>
           <Text>Faça login com sua conta do Google:</Text>
-          <Button title="Login com o Google" onPress={handleGoogleLoginClick} />
+          <GoogleSigninButton style={styles.button} onPress={_signin} />
         </View>
       )}
     </LinearGradient>
   );
-}
+};
 
 const styles = StyleSheet.create({
   pageContainer: {
@@ -50,6 +85,10 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 24,
     marginBottom: 20,
+  },
+  button: {
+    width: 192,
+    height: 48,
   },
 });
 
