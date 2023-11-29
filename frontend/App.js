@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import 'expo-dev-client'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginPage from './components/pages/LoginPage';

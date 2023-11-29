@@ -1,4 +1,4 @@
-package com.anonymous.frontend;
+package com.anonymous.readyrescue;
 
 import android.os.Build;
 import android.os.Bundle;
