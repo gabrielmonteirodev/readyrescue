@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import 'expo-dev-client'
+import 'expo-dev-client';
+import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginPage from './components/pages/LoginPage';
@@ -12,6 +13,7 @@ import TraumatismoPage from './components/pages/TraumatismoPage';
 import QueimaduraPage from './components/pages/QueimaduraPage';
 import LojaPage from './components/pages/LojaPage';
 import CarrinhoPage from './components/pages/CarrinhoPage';
+import { AppRegistry } from 'react-native';
 
 const Stack = createStackNavigator();
 
@@ -41,3 +43,5 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+AppRegistry.registerComponent(App, () => gestureHandlerRootHOC(App));
