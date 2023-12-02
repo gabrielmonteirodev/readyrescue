@@ -94,7 +94,8 @@ const styles = StyleSheet.create({
   googleButton: {
     width: 192,
     height: 48,
-    marginTop: 20,
+    marginTop: 14,
+    marginLeft: 12
   },
 });
 
