@@ -70,9 +70,9 @@ export default function MenuPage({ isLoggedIn, setIsLoggedIn }) {
               </View>
             ))}
           </View>
-          <TouchableOpacity style={styles.shopButton}>
+          <TouchableOpacity style={styles.shopButton} onPress={() => handlePageClick('LojaPage')}>
             <Text style={styles.shopButtonText}>LOJA Ready Rescue</Text>
-          </TouchableOpacity>
+</TouchableOpacity>
           <View style={styles.logoutButton}>
             {renderButtonIcon('power-off', 24, handleLogoutClick)}
           </View>
